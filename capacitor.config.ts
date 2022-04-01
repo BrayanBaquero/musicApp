@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'com.appmusic.com',
   appName: 'platzi-music',
   webDir: 'www',
   bundledWebRuntime: false
