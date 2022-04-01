@@ -1,23 +1,42 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content >
-  <ion-slide>
-    <ion-slide>
-      <h1>Slide1</h1>
-    </ion-slide>
 
-    <ion-slide>
-      <h1>Slide1</h1>
-    </ion-slide>
+<ion-content [fullscreen]="true">
+  <swiper [pagination]="true" [config]="slideOps">
+    <ng-template swiperSlide>
+      <ion-icon name="close"></ion-icon>
+      <img src="assets/img/logo.png" alt="Logo app music">
+      <h1>Escucha tu musica</h1>
+      <h2>EN CUALQUIER LUGAR</h2>
+      <P>
+        Los mejores albunes, las mejores canciones.
+         Escucha y comprate en cualquier momento, a todas horas.
+      </P>
+      <ion-icon name="play"></ion-icon>
+    </ng-template>
 
-    <ion-slide>
-      <h1>Slide1</h1>
-    </ion-slide>
-  </ion-slide>
+    <ng-template swiperSlide>
+      <ion-icon name="close"></ion-icon>
+      <img src="assets/img/logo.png" alt="Logo app music">
+      <h1>Escucha tu musica</h1>
+      <h2>EN CUALQUIER LUGAR</h2>
+      <P>
+        Los mejores albunes, las mejores canciones.
+         Escucha y comprate en cualquier momento, a todas horas.
+      </P>
+      <ion-icon name="play"></ion-icon>
+    </ng-template>
+
+    <ng-template swiperSlide>
+      <ion-icon name="close"></ion-icon>
+      <img src="assets/img/logo.png" alt="Logo app music">
+      <h1>Escucha tu musica</h1>
+      <h2>EN CUALQUIER LUGAR</h2>
+      <P>
+        Los mejores albunes, las mejores canciones.
+         Escucha y comprate en cualquier momento, a todas horas.
+      </P>
+      <ion-icon name="play"></ion-icon>
+    </ng-template>
+   
+  </swiper>
 </ion-content>
