@@ -4,14 +4,23 @@ import { NavController } from '@ionic/angular';
 import { AuthenticateService } from '../services/authenticate.service';
 import { Storage } from '@ionic/storage-angular';
 
+
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-register',
+  templateUrl: './register.page.html',
+  styleUrls: ['./register.page.scss'],
 })
-export class LoginPage implements OnInit {
-  loginForm: FormGroup;
+export class RegisterPage implements OnInit {
+  registerForm: FormGroup;
   validation_messages={
+    nombre: [
+      {type:"required", message:"El nombre es requerido"},
+      {type:"pattern", message:"El nombre es invalido"}
+    ],
+    apellido: [
+      {type:"required", message:"El apellido es requerido"},
+      {type:"pattern", message:"El apellido es invalido"}
+    ],
     email: [
       {type:"required", message:"El email es requerido"},
       {type:"pattern", message:"El email es invalido"}
@@ -24,15 +33,21 @@ export class LoginPage implements OnInit {
 
   errorMessage:string="";
 
-
   constructor(private formBuilder: FormBuilder,
              private authService: AuthenticateService,
              private navCtrl: NavController,
              private storage: Storage) { 
-    this.loginForm=this.formBuilder.group({
+               
+    this.registerForm=this.formBuilder.group({
+      nombre:new FormControl("",Validators.compose([
+        Validators.required,
+      ])),
+      apellido:new FormControl("",Validators.compose([
+        Validators.required,
+      ])),
       email:new FormControl("",Validators.compose([
         Validators.required,
-        Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")
+        Validators.email
       ])),
       password:new FormControl("",Validators.compose([
         Validators.required,
@@ -40,27 +55,11 @@ export class LoginPage implements OnInit {
       ]))
 
     });
-
-    console.log(this.loginForm)
   }
+  registerUser(datos){
 
-  loginUser(credentials){
-    console.log(credentials)
-    this.authService.loginUser(credentials).then(res=>{
-      this.errorMessage="";
-      this.storage.set("isUserLoggedIn",true);
-      this.navCtrl.navigateForward("/home")
-    }).catch(err=>{
-      this.errorMessage=err;
-    })
   }
-
-  goToRegister(){
-    this.navCtrl.navigateForward('/register')
-  }
-
   ngOnInit() {
-    this.storage.create();
   }
 
 }
