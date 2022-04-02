@@ -23,7 +23,7 @@ export class RegisterPage implements OnInit {
     ],
     email: [
       {type:"required", message:"El email es requerido"},
-      {type:"pattern", message:"El email es invalido"}
+      {type:"email", message:"El email es invalido"}
     ],
     password:[
       {type:"required", message:"El password es requerido"},
@@ -37,7 +37,7 @@ export class RegisterPage implements OnInit {
              private authService: AuthenticateService,
              private navCtrl: NavController,
              private storage: Storage) { 
-               
+
     this.registerForm=this.formBuilder.group({
       nombre:new FormControl("",Validators.compose([
         Validators.required,
@@ -56,9 +56,20 @@ export class RegisterPage implements OnInit {
 
     });
   }
-  registerUser(datos){
+  registerUser(userData){
+     this.authService.registerUser(userData).then(()=>{
+      this.navCtrl.navigateBack('/login');
+
+     })
+  }
+  goToLogin(){
+    this.navCtrl.navigateBack('/login');
 
   }
+
+  
+
+
   ngOnInit() {
   }
 
