@@ -1,0 +1,14 @@
+<ion-content class="ion-padding" [fullscreen]="true">
+  <swiper [pagination]="true" [config]="slideOps">
+    <ng-template swiperSlide  *ngFor="let slide of slides">
+      <ion-icon name="close" (click)="finish()"></ion-icon>
+      <img src={{slide.imageSrc}} alt={{slide.imageAlt}}>
+      <h1>{{slide.title}}</h1>
+      <h2>{{slide.subtitle}}</h2>
+      <P>
+        {{slide.description}}
+      </P>
+      <ion-icon name="{{slide.icon}}"></ion-icon>
+    </ng-template>
+  </swiper>
+</ion-content>

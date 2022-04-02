@@ -1,0 +1,44 @@
+
+//@import '~swiper/scss';
+//@import '~@ionic/angular/css/ionic-swiper'; 
+
+ion-content {
+    // text-align: center;
+    height: 100%;
+     --background: var(--ion-color-secondary);
+     font-family: "Times New Roman", Times, serif;
+   }
+   .swiper {
+     background-color: white;
+     height: 100%;
+     max-width: 800px;
+   }
+   .swiper .swiper-slide{
+     display: block;
+     margin-bottom: 64px;
+     background-color: white;
+   }
+   .swiper .swiper-slide > h1,
+   h2 {
+     margin: 0 0 0 0;
+     color: var(--ion-color-primary);
+   }
+   .swiper .swiper-slide  > p {
+     font-style: italic;
+     font-size: 22px;
+     padding: 1em 1em 1em 1em;
+   }
+   .swiper .swiper-slide  > ion-icon {
+     color: var(--ion-color-secondary);
+     font-size: 48px;
+   }
+   .swiper .swiper-slide  > ion-icon[name="close"] {
+     float: right;
+     color: var(--ion-color-primary);
+     font-size: 48px;
+   }
+   .swiper .swiper-slide  > img {
+     max-height: 50%;
+     max-width: 60%;
+     margin: 64px 0;
+   }
