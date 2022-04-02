@@ -37,5 +37,17 @@
           </ng-container>
         </div>
      
+        <ion-button expand="full" 
+                    shape="round" 
+                    [disabled]="!loginForm.valid"
+                    type="submit"
+                     >Login</ion-button>
     </form>
 </ion-content>
+
+<ion-footer class="ion-text-center">
+  <ion-button expand="full" 
+              shape="round" 
+              fill="outline" 
+              color="secundary">Click for register</ion-button>
+</ion-footer>

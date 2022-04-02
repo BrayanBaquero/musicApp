@@ -35,8 +35,8 @@ export class LoginPage implements OnInit {
     console.log(this.loginForm)
   }
 
-  loginUser(loginForm){
-
+  loginUser(credentials){
+    console.log(credentials)
   }
   ngOnInit() {
   }
