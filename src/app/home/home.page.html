@@ -7,5 +7,13 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="ion-padding" >
-  This is home and is empty
+  <h1>Artists</h1>
+  <swiper [pagination]="true" [config]="slideOps" *ngIf="artists.length">
+    <ng-template swiperSlide *ngFor="let artist of artists">
+      <ion-avatar>
+        <img src="https://via.placeholder.com/150" alt=""/>
+        <span>Artist</span>
+      </ion-avatar>
+    </ng-template>
+  </swiper>
 </ion-content>

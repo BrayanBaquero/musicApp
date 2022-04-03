@@ -14,7 +14,7 @@ SwiperCore.use([Pagination/*,Autoplay, Keyboard, , Scrollbar, Zoom/*/]);
 export class IntroPage implements OnInit {
   slideOps={
     initialSlide:0,
-    slidesPresView:1,
+    slidesPerView:1,
     centeredSlides:true,
     speed:400
   }
