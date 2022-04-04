@@ -20,18 +20,18 @@ export class HomePage {
    
   }
 
-  artists=[
-    {},{}, {},{}, {},{}, {},{}, {},{}
-  ];
+
 
   songs:any[]=[];
   albums:any[]=[];
+  artists:any[]=[];
 
   constructor(private musicService: AppMusicService) {}
 
   ionViewDidEnter(){
     this.musicService.getNewReleases().then((newReleases)=>{
-      this.artists=newReleases.albums.items;
+      this.artists=this.musicService.getArtists().items;
+      console.log('Artistas',this.artists)
       this.songs=newReleases.albums.items.filter(e=>e.album_type=="single");
       this.albums=newReleases.albums.items.filter(e=>e.album_type=="album");
       console.log(this.artists);

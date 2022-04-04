@@ -36,7 +36,25 @@
 
 ion-avatar{
   height: 130px;
+  width: 90px;
+ 
 }
+.swiper .swiper-slide ion-avatar img{
+  width: auto;
+  max-width: 100%;
+  height: 90px;
+  max-height: 100%;
+}
+
+
 ion-avatar span{
   font-size:12px ;
+}
+
+.square-avatar{
+  --border-radius:0;
+}
+
+.swiper .swiper-slide{
+  margin-bottom: 10%;
 }

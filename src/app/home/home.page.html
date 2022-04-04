@@ -7,10 +7,20 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="ion-padding" >
+  <h1>Artists</h1>
+  <swiper [pagination]="true" [config]="slideOps" *ngIf="artists.length">
+    <ng-template swiperSlide *ngFor="let artist of artists">
+      <ion-avatar>
+        <img [src]="artist.images[0].url" alt=""/>
+        <span>{{artist.name}}</span>
+      </ion-avatar>
+    </ng-template>
+  </swiper>
+
   <h1>Albums</h1>
   <swiper [pagination]="true" [config]="slideOps" *ngIf="albums.length">
     <ng-template swiperSlide *ngFor="let album of albums">
-      <ion-avatar>
+      <ion-avatar class="square-avatar">
         <img [src]="album.images[0].url" alt=""/>
         <span>{{album.name}}</span>
       </ion-avatar>
@@ -20,7 +30,7 @@
   <h1>Songs</h1>
   <swiper [pagination]="true" [config]="slideOps" *ngIf="songs.length">
     <ng-template swiperSlide *ngFor="let song of songs">
-      <ion-avatar>
+      <ion-avatar class="square-avatar">
         <img [src]="song.images[0].url" alt=""/>
         <span> {{song.name}} </span>
       </ion-avatar>
