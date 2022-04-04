@@ -1,6 +1,8 @@
 import { Component , ViewEncapsulation} from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import SwiperCore, { Autoplay, Keyboard, Pagination, Scrollbar, Zoom } from 'swiper';
 import { AppMusicService } from '../services/app-music.service';
+import { SongsModalPage } from '../songs-modal/songs-modal.page';
 
 SwiperCore.use([Pagination/*,Autoplay, Keyboard, , Scrollbar, Zoom/*/]);
 
@@ -26,15 +28,28 @@ export class HomePage {
   albums:any[]=[];
   artists:any[]=[];
 
-  constructor(private musicService: AppMusicService) {}
+  constructor(private musicService: AppMusicService,
+              private modalController: ModalController ) {}
 
   ionViewDidEnter(){
     this.musicService.getNewReleases().then((newReleases)=>{
       this.artists=this.musicService.getArtists().items;
-      console.log('Artistas',this.artists)
+      //console.log('Artistas',this.artists)
       this.songs=newReleases.albums.items.filter(e=>e.album_type=="single");
       this.albums=newReleases.albums.items.filter(e=>e.album_type=="album");
-      console.log(this.artists);
+      //console.log(this.artists);
     })
+  }
+
+  async showSongs(artist){
+    const songs=await this.musicService.getArtistsTopTracks(artist.id);
+    const modal=await this.modalController.create({
+      component: SongsModalPage,
+      componentProps:{
+        songs:songs.tracks,
+        artist: artist.name
+      }
+    });
+    return await modal.present();
   }
 }
