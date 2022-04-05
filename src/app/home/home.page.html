@@ -10,7 +10,7 @@
   <h1>Artists</h1>
   <swiper [pagination]="true" [config]="slideOps" *ngIf="artists.length">
     <ng-template swiperSlide *ngFor="let artist of artists">
-      <ion-avatar (click)="showSongs(artist)">
+      <ion-avatar (click)="showSongs(artist,null)">
         <img [src]="artist.images[0].url" alt=""/>
         <span>{{artist.name}}</span>
       </ion-avatar>
@@ -20,7 +20,7 @@
   <h1>Albums</h1>
   <swiper [pagination]="true" [config]="slideOps" *ngIf="albums.length">
     <ng-template swiperSlide *ngFor="let album of albums">
-      <ion-avatar class="square-avatar">
+      <ion-avatar class="square-avatar" (click)="showSongs(null,album)">
         <img [src]="album.images[0].url" alt=""/>
         <span>{{album.name}}</span>
       </ion-avatar>

@@ -42,18 +42,26 @@ export class HomePage {
     })
   }
 
-  async showSongs(artist){
-    const songs=await this.musicService.getArtistsTopTracks(artist.id);
+  async showSongs(artist,album){
+    let songs;
+    if(artist){
+      songs=await this.musicService.getArtistsTopTracks(artist.id);
+    }
+    if(album){
+      songs=await this.musicService.getAlbumTracks(album.id);
+    }
+    
     const modal=await this.modalController.create({
       component: SongsModalPage,
       componentProps:{
-        songs:songs.tracks,
-        artist: artist.name
+        songs: artist? songs.tracks :songs.items,
+        artist: artist? artist.name :album.name
       }
     });
 
     modal.onDidDismiss().then(dataReturned=>{
       this.song=dataReturned.data;
+      console.log(this.song);
     })
     return await modal.present();
   }
