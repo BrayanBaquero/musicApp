@@ -15,7 +15,6 @@ export class SongsModalPage  {
 
   ionViewDiEnter(){
     this.songs=this.navParams.data.songs;
-    console.log(this.songs)
     this.artist=this.navParams.data.artist;
   }
 

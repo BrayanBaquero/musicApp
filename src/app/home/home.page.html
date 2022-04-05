@@ -37,3 +37,11 @@
     </ng-template>
   </swiper>
 </ion-content>
+<ion-footer>
+  <ion-text color="danger" *ngIf="!song.name">
+    <h2>Here should appear our song</h2>
+  </ion-text>
+  <ion-text color="secondary" *ngIf="song">
+    <h2> {{song.name}} </h2>
+  </ion-text>
+</ion-footer>

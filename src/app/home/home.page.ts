@@ -22,12 +22,10 @@ export class HomePage {
    
   }
 
-
-
   songs:any[]=[];
   albums:any[]=[];
   artists:any[]=[];
-
+  song:any ={};
   constructor(private musicService: AppMusicService,
               private modalController: ModalController ) {}
 
@@ -43,7 +41,6 @@ export class HomePage {
 
   async showSongs(artist){
     const songs=await this.musicService.getArtistsTopTracks(artist.id);
-    console.log(songs);
     const modal=await this.modalController.create({
       component: SongsModalPage,
       componentProps:{
@@ -51,6 +48,10 @@ export class HomePage {
         artist: artist.name
       }
     });
+
+    modal.onDidDismiss().then(dataReturned=>{
+      this.song=dataReturned.data;
+    })
     return await modal.present();
   }
 }
