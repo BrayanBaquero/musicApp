@@ -80,7 +80,7 @@ export class HomePage {
     this.song.playing=false;
   }
 
-  parseTime(time="1.00"){
+  parseTime(time="0.00"){
     if(time){
       const parTime=parseInt(time.toString().split(".")[0],10);
       let minutes=Math.floor(parTime/60).toString();
