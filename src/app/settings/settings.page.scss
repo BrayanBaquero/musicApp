@@ -1,4 +1,35 @@
-// ion-avatar img{
-//     width: 200px;
-//     height: 200px;
-// }
+
+ion-avatar{
+    margin-top: 16px;
+    height: auto;
+    width: auto;
+    img{
+        // text-align: center;
+        // margin: 0 auto;
+        max-width: none;
+        width: 100px;
+        height: 100px;
+    }
+}
+
+h1{
+    margin-bottom: 0;
+}
+h2{
+    margin-top: 0;
+    font-size: 16px;
+    margin-bottom: 32px;
+}
+
+
+.row-header{
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.success-background{
+    background-color: var(--ion-color-secondary);
+    color: var(--ion-color-light);
+    padding-bottom: 32px;
+}
+

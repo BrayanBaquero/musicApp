@@ -1,12 +1,33 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>settings</ion-title>
+    <ion-button slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-avatar (click)="takePhoto()">
+<ion-content class="ion-text-center ion-text-center">
+  <div class="success-background  ion-padding">
+    <ion-avatar class="ion-text-center ion-text-center" (click)="takePhoto()">
     <img [src]="userImage" *ngIf="!photo"/>
     <img [src]="photo" *ngIf="photo"/>
   </ion-avatar>
+  <h1>User Name</h1>
+  <h1>user@mail.com</h1>
+  <ion-grid>
+    <ion-row class="ion-text-center row-header">
+      <ion-col>140</ion-col>
+      <ion-col>2k</ion-col>
+      <ion-col>500</ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center ion-text-center">
+      <ion-col>Artists</ion-col>
+      <ion-col>Followers</ion-col>
+      <ion-col>Songs</ion-col>
+    </ion-row>
+  </ion-grid>
+  </div>
+  
 </ion-content>
