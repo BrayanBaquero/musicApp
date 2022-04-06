@@ -22,7 +22,8 @@ export class MenuPage implements OnInit {
     this.navCtrl.navigateRoot('/login')
   }
   goToSettings(){
-    this.navCtrl.navigateRoot('menu/settings')
+    this.navCtrl.navigateRoot('menu/settings');
+    this.menu.close();
   }
   ngOnInit() {
     this.storage.create();
